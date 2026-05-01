@@ -30,7 +30,7 @@
   .hero {
     background: var(--ink);
     color: var(--white);
-    padding: 64px 48px 56px;
+    padding: 80px 48px 64px;
     position: relative;
     overflow: hidden;
   }
@@ -86,7 +86,7 @@
   }
 
   /* SECTION DEFAULTS */
-  .section { padding: 56px 48px; }
+  .section { padding: 64px 48px; }
   .section-label {
     font-size: 11px;
     font-weight: 500;
@@ -95,6 +95,26 @@
     color: var(--muted);
     margin-bottom: 28px;
   }
+
+  /* CHAT PREVIEW */
+  .chat-demo {
+    max-width: 450px;
+    margin: 20px 0;
+    background: #e5ddd5; /* WhatsApp Chat BG color */
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .bubble {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 12px;
+    max-width: 85%;
+    position: relative;
+  }
+  .bubble.user { background: var(--white); align-self: flex-start; }
+  .bubble.bot { background: #dcf8c6; margin-left: auto; text-align: left; }
 
   /* PROBLEM GRID */
   .problem-grid {
@@ -124,7 +144,7 @@
   .solution-section {
     background: var(--ink);
     color: var(--white);
-    padding: 56px 48px;
+    padding: 64px 48px;
   }
   .solution-section h2 {
     font-family: 'Syne', sans-serif;
@@ -135,17 +155,16 @@
   .solution-section h2 span { color: var(--green); }
   .flow {
     display: flex;
-    gap: 8px;
+    gap: 12px;
     flex-wrap: wrap;
   }
   .flow-step {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 10px;
-    padding: 16px 20px;
+    padding: 20px;
     flex: 1;
-    min-width: 150px;
-    text-align: center;
+    min-width: 180px;
   }
   .flow-step .num {
     font-family: 'Syne', sans-serif;
@@ -159,16 +178,18 @@
   /* PRICING */
   .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
   }
   .price-card {
     background: var(--white);
     border: 1.5px solid var(--border);
     border-radius: 16px;
-    padding: 28px 24px;
+    padding: 32px 24px;
     position: relative;
+    transition: transform 0.3s ease;
   }
+  .price-card:hover { transform: translateY(-5px); }
   .price-card.featured {
     border-color: var(--green);
     background: var(--ink);
@@ -191,15 +212,15 @@
     font-weight: 800;
     margin-bottom: 4px;
   }
-  .price-desc { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
-  .price-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-  .price-card li { font-size: 13px; display: flex; align-items: center; gap: 8px; }
+  .price-desc { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+  .price-card ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .price-card li { font-size: 13px; display: flex; align-items: flex-start; gap: 10px; }
   .price-card li::before { content: '✓'; color: var(--green); font-weight: 700; }
 
   /* PROOF SECTION */
   .proof-section {
     background: linear-gradient(135deg, #f0fdf4 0%, #fafaf8 100%);
-    padding: 56px 48px;
+    padding: 64px 48px;
     border-top: 1px solid var(--border);
   }
   .stat-grid {
@@ -213,6 +234,7 @@
     background: var(--white);
     border-radius: 16px;
     border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
   }
   .stat-num {
     font-family: 'Syne', sans-serif;
@@ -225,7 +247,7 @@
   .cta-section {
     background: var(--ink);
     color: var(--white);
-    padding: 80px 48px;
+    padding: 100px 48px;
     text-align: center;
   }
   .cta-btn {
@@ -235,16 +257,20 @@
     color: var(--ink);
     font-family: 'Syne', sans-serif;
     font-weight: 700;
-    padding: 16px 32px;
+    padding: 18px 36px;
     border-radius: 100px;
     text-decoration: none;
     margin-top: 24px;
-    transition: transform 0.2s;
+    transition: all 0.2s;
   }
-  .cta-btn:hover { transform: scale(1.05); }
+  .cta-btn:hover { 
+    transform: scale(1.05);
+    background: #20bd5b;
+  }
 
   @media (max-width: 600px) {
-    .hero, .section, .solution-section, .proof-section, .cta-section { padding: 40px 24px; }
+    .hero, .section, .solution-section, .proof-section, .cta-section { padding: 48px 24px; }
+    .hero h1 { font-size: 36px; }
   }
 </style>
 </head>
@@ -252,12 +278,18 @@
 
 <!-- HERO -->
 <div class="hero">
-  <div class="badge">
+  <div class="badge" id="time-badge">
     <span class="badge-dot"></span>
     Next-Gen Workflow Automation
   </div>
   <h1>Turn your WhatsApp into a <span>Sales Machine.</span></h1>
-  <p>We build intelligent AI agents that handle inquiries, share catalogs, and qualify leads automatically—fluent in English and natural "Tinglish" (Telugu + English).</p>
+  <p>Intelligent AI agents built to handle inquiries, share catalogs, and qualify leads 24/7. Native support for English and natural <strong>Tinglish</strong>.</p>
+  
+  <!-- "TINGLISH" CHAT PREVIEW -->
+  <div class="chat-demo">
+    <div class="bubble user">Car mileage entha brother? Is it available?</div>
+    <div class="bubble bot">Avunu andi! Ee Swift VXI availability lo undi. 22kmpl mileage isthundi. Full details pampana?</div>
+  </div>
 </div>
 
 <!-- PROBLEM -->
@@ -266,8 +298,8 @@
   <h2 style="font-family: 'Syne'; font-size: 28px; margin-bottom: 32px;">Every missed reply is a lost sale</h2>
   <div class="problem-grid">
     <div class="problem-card"><h3>24/7 Demand</h3><p>Customers message at midnight. If you don't reply instantly, they move to the next dealer.</p></div>
-    <div class="problem-card"><h3>Manual Overload</h3><p>Spending hours repeating prices, mileage, and locations instead of closing deals.</p></div>
-    <div class="problem-card"><h3>Lead Leakage</h3><p>Interested buyers go cold because there's no system to track or follow up automatically.</p></div>
+    <div class="problem-card"><h3>Manual Overload</h3><p>Spending hours repeating mileage and prices instead of closing deals.</p></div>
+    <div class="problem-card"><h3>Lead Leakage</h3><p>Interested buyers go cold because there's no system to track follow-ups.</p></div>
   </div>
 </div>
 
@@ -277,17 +309,17 @@
   <h2>Full-Auto <span>Lead Conversion</span></h2>
   <div class="flow">
     <div class="flow-step"><div class="num">01. CAPTURE</div><p>Customer taps your WhatsApp link from OLX or Ads.</p></div>
-    <div class="flow-step"><div class="num">02. ENGAGE</div><p>AI greets them instantly in natural "Tinglish."</p></div>
-    <div class="flow-step"><div class="num">03. AUTOMATE</div><p>AI shares photos, specs, and prices based on interest.</p></div>
-    <div class="flow-step"><div class="num">04. QUALIFY</div><p>AI filters time-wasters and identifies serious buyers.</p></div>
-    <div class="flow-step"><div class="num">05. ESCALATE</div><p>You get a notification only when a "Hot Lead" is ready.</p></div>
+    <div class="flow-step"><div class="num">02. ENGAGE</div><p>AI greets them instantly in natural Tinglish (Telugu + English).</p></div>
+    <div class="flow-step"><div class="num">03. AUTOMATE</div><p>AI shares photos and specs based on their specific interest.</p></div>
+    <div class="flow-step"><div class="num">04. QUALIFY</div><p>AI filters time-wasters and identifies serious buyers for you.</p></div>
+    <div class="flow-step"><div class="num">05. ESCALATE</div><p>You get a notification only when a "Hot Lead" is ready to buy.</p></div>
   </div>
 </div>
 
 <!-- PROOF -->
 <div class="proof-section">
   <div class="section-label">Real World Proof</div>
-  <h2 style="font-family: 'Syne'; margin-bottom: 32px;">Trusted by Tejaswini Auto Consultancy</h2>
+  <h2 style="font-family: 'Syne'; margin-bottom: 32px;">Battle-tested at <strong>Tejaswini Auto Consultancy</strong></h2>
   <div class="stat-grid">
     <div class="stat"><div class="stat-num">&lt;5s</div><p>Response Time</p></div>
     <div class="stat"><div class="stat-num">100%</div><p>Lead Capture Rate</p></div>
@@ -303,10 +335,10 @@
       <div class="price-amount">₹15,000</div>
       <div class="price-desc">Basic Automation (One-time)</div>
       <ul>
-        <li>AI FAQ Handling</li>
-        <li>Tinglish Support</li>
-        <li>Basic Lead Sheet</li>
-        <li>1 Month Support</li>
+        <li>AI FAQ & Inquiry Handling</li>
+        <li>Natural Tinglish Support</li>
+        <li>Automated Lead Google Sheet</li>
+        <li>1 Month Technical Support</li>
       </ul>
     </div>
     <div class="price-card featured">
@@ -315,10 +347,10 @@
       <div class="price-desc">Pro Workflow (One-time)</div>
       <ul>
         <li>Everything in Basic</li>
-        <li>Auto Photo/Catalog Sharing</li>
+        <li>Auto Photo & Catalog Sharing</li>
         <li>Lead Qualification Engine</li>
-        <li>Instant Owner Alerts</li>
-        <li>3 Months Support</li>
+        <li>Instant Owner Alerts (Hot Leads)</li>
+        <li>3 Months Priority Support</li>
       </ul>
     </div>
     <div class="price-card">
@@ -326,8 +358,8 @@
       <div class="price-desc">Monthly Care (Optional)</div>
       <ul>
         <li>Covers WhatsApp API Costs</li>
-        <li>Inventory/Price Updates</li>
-        <li>Monthly Lead Reports</li>
+        <li>Inventory & Price Updates</li>
+        <li>Monthly Performance Reports</li>
         <li>Priority Troubleshooting</li>
       </ul>
     </div>
@@ -337,31 +369,43 @@
 <!-- CTA -->
 <div class="cta-section">
   <h2>Stop losing leads. Start <span>Automating.</span></h2>
-  <p style="color: rgba(255,255,255,0.5); margin-top: 10px;">Get a live demo of the bot on your own phone.</p>
+  <p style="color: rgba(255,255,255,0.5); margin-top: 10px;">Experience the AI on your own phone right now.</p>
   
-  <a href="https://wa.me/919059855891?text=Hi%20Eswar%2C%20I%20want%20to%20see%20the%20AI%20Automation%20demo%20for%20my%20business" class="cta-btn">🚀 Try the Demo Bot Now</a>
+  <a href="https://wa.me/919059855891?text=Hi%20Eswar%2C%20I%20want%20to%20see%20the%20AI%20Automation%20demo" target="_blank" class="cta-btn">🚀 Try the Demo Bot Now</a>
 
   <div style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-top: 40px;">
     <div style="color: rgba(255,255,255,0.6); font-size: 14px;">
-      📞 <strong>Call / WhatsApp:</strong> +91 90598 55891
+      📞 <strong>Call:</strong> +91 90598 55891
     </div>
     <div style="color: rgba(255,255,255,0.6); font-size: 14px;">
       📧 <strong>Email:</strong> evkdesigns1@gmail.com
     </div>
     <div style="color: rgba(255,255,255,0.6); font-size: 14px;">
-      📍 <strong>Based in:</strong> Samarlakota / Hyderabad
+      📍 <strong>Location:</strong> Samarlakota / Hyderabad
     </div>
   </div>
 </div>
 
 <!-- FOOTER -->
-<div style="padding: 24px 48px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; background: var(--bg);">
+<div style="padding: 32px 48px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; background: var(--bg);">
   <div>
     <div style="font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 800; color: var(--ink);">EVK DESIGNS</div>
     <p style="font-size: 11px; color: var(--muted); margin-top: 2px;">Founded by Eswar Padala</p>
   </div>
-  <p style="font-size: 12px; color: var(--muted);">© 2026 WhatsApp AI Automation · Built for Telugu Businesses</p>
+  <p style="font-size: 12px; color: var(--muted);">© 2026 WhatsApp AI Automation · Optimized for Local Businesses</p>
 </div>
+
+<script>
+  // Simple JS to update the badge if it's late at night
+  const badge = document.getElementById('time-badge');
+  const hour = new Date().getHours();
+  if (hour >= 21 || hour <= 6) {
+    badge.innerHTML = '<span class="badge-dot" style="background:#ff4b2b"></span> Night Mode: AI Handling Inquiries';
+    badge.style.color = '#ff4b2b';
+    badge.style.borderColor = 'rgba(255,75,43,0.3)';
+    badge.style.background = 'rgba(255,75,43,0.1)';
+  }
+</script>
 
 </body>
 </html>
