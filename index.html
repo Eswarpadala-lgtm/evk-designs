@@ -3,20 +3,17 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>WhatsApp AI Automation | EVK Designs</title>
+<title>EVK Designs | AI Automation & Business Graphics Agency</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
 <style>
   :root {
     --green: #25D366;
     --green-dark: #128C7E;
-    --green-light: #dcfce7;
     --ink: #0a0a0a;
-    --ink2: #2d2d2d;
     --muted: #6b7280;
     --border: #e5e7eb;
     --bg: #fafaf8;
     --white: #ffffff;
-    --accent: #FF6B35;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -30,18 +27,7 @@
   .hero {
     background: var(--ink);
     color: var(--white);
-    padding: 80px 48px 64px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 320px; height: 320px;
-    border-radius: 50%;
-    background: var(--green);
-    opacity: 0.12;
+    padding: 100px 48px 80px;
   }
   .badge {
     display: inline-flex;
@@ -52,195 +38,72 @@
     color: var(--green);
     padding: 6px 14px;
     border-radius: 100px;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.05em;
+    font-size: 11px;
+    font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 24px;
   }
-  .badge-dot {
-    width: 7px; height: 7px;
-    background: var(--green);
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%,100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.3); }
-  }
   .hero h1 {
     font-family: 'Syne', sans-serif;
-    font-size: clamp(32px, 5vw, 52px);
+    font-size: clamp(32px, 5vw, 60px);
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 20px;
-    max-width: 640px;
   }
   .hero h1 span { color: var(--green); }
   .hero p {
-    font-size: 17px;
-    color: rgba(255,255,255,0.65);
-    max-width: 520px;
-    font-weight: 300;
-    line-height: 1.7;
+    font-size: 18px;
+    color: rgba(255,255,255,0.7);
+    max-width: 650px;
   }
 
-  /* SECTION DEFAULTS */
-  .section { padding: 64px 48px; }
+  /* SERVICES SECTION */
+  .section { padding: 80px 48px; }
   .section-label {
     font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
+    font-weight: 700;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 28px;
-  }
-
-  /* CHAT PREVIEW */
-  .chat-demo {
-    max-width: 450px;
-    margin: 20px 0;
-    background: #e5ddd5; /* WhatsApp Chat BG color */
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-  .bubble {
-    padding: 10px 14px;
-    border-radius: 8px;
-    font-size: 14px;
-    margin-bottom: 12px;
-    max-width: 85%;
-    position: relative;
-  }
-  .bubble.user { background: var(--white); align-self: flex-start; }
-  .bubble.bot { background: #dcf8c6; margin-left: auto; text-align: left; }
-
-  /* PROBLEM GRID */
-  .problem-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-  }
-  .problem-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-  }
-  .problem-card h3 {
-    font-family: 'Syne', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 6px;
-  }
-  .problem-card p {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
-  /* SOLUTION SECTION */
-  .solution-section {
-    background: var(--ink);
-    color: var(--white);
-    padding: 64px 48px;
-  }
-  .solution-section h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(24px, 3.5vw, 36px);
-    font-weight: 800;
+    letter-spacing: 0.1em;
     margin-bottom: 40px;
   }
-  .solution-section h2 span { color: var(--green); }
-  .flow {
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+  }
+
+  .category-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 24px;
     display: flex;
+    align-items: center;
     gap: 12px;
-    flex-wrap: wrap;
   }
-  .flow-step {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 10px;
-    padding: 20px;
-    flex: 1;
-    min-width: 180px;
-  }
-  .flow-step .num {
-    font-family: 'Syne', sans-serif;
-    font-size: 11px;
-    color: var(--green);
-    font-weight: 700;
-    margin-bottom: 6px;
-  }
-  .flow-step p { font-size: 13px; color: rgba(255,255,255,0.8); }
 
-  /* PRICING */
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-  }
-  .price-card {
+  .service-card {
     background: var(--white);
-    border: 1.5px solid var(--border);
-    border-radius: 16px;
-    padding: 32px 24px;
-    position: relative;
-    transition: transform 0.3s ease;
-  }
-  .price-card:hover { transform: translateY(-5px); }
-  .price-card.featured {
-    border-color: var(--green);
-    background: var(--ink);
-    color: var(--white);
-  }
-  .popular-tag {
-    position: absolute;
-    top: -12px; left: 50%;
-    transform: translateX(-50%);
-    background: var(--green);
-    color: var(--ink);
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 14px;
-    border-radius: 100px;
-  }
-  .price-amount {
-    font-family: 'Syne', sans-serif;
-    font-size: 32px;
-    font-weight: 800;
-    margin-bottom: 4px;
-  }
-  .price-desc { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
-  .price-card ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-  .price-card li { font-size: 13px; display: flex; align-items: flex-start; gap: 10px; }
-  .price-card li::before { content: '✓'; color: var(--green); font-weight: 700; }
-
-  /* PROOF SECTION */
-  .proof-section {
-    background: linear-gradient(135deg, #f0fdf4 0%, #fafaf8 100%);
-    padding: 64px 48px;
-    border-top: 1px solid var(--border);
-  }
-  .stat-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 24px;
-  }
-  .stat {
-    text-align: center;
-    padding: 28px 16px;
-    background: var(--white);
-    border-radius: 16px;
     border: 1px solid var(--border);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    padding: 32px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
   }
-  .stat-num {
+  .service-card:hover {
+    border-color: var(--green);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+  .service-card h3 {
     font-family: 'Syne', sans-serif;
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--green-dark);
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  .service-card p {
+    font-size: 14px;
+    color: var(--muted);
   }
 
   /* CTA */
@@ -252,160 +115,87 @@
   }
   .cta-btn {
     display: inline-flex;
-    align-items: center;
     background: var(--green);
     color: var(--ink);
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    padding: 18px 36px;
+    padding: 20px 48px;
     border-radius: 100px;
     text-decoration: none;
-    margin-top: 24px;
-    transition: all 0.2s;
-  }
-  .cta-btn:hover { 
-    transform: scale(1.05);
-    background: #20bd5b;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    margin-top: 32px;
   }
 
   @media (max-width: 600px) {
-    .hero, .section, .solution-section, .proof-section, .cta-section { padding: 48px 24px; }
-    .hero h1 { font-size: 36px; }
+    .hero, .section { padding: 60px 24px; }
   }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
 <div class="hero">
-  <div class="badge" id="time-badge">
-    <span class="badge-dot"></span>
-    Next-Gen Workflow Automation
-  </div>
-  <h1>Turn your WhatsApp into a <span>Sales Machine.</span></h1>
-  <p>Intelligent AI agents built to handle inquiries, share catalogs, and qualify leads 24/7. Native support for English and natural <strong>Tinglish</strong>.</p>
-  
-  <!-- "TINGLISH" CHAT PREVIEW -->
-  <div class="chat-demo">
-    <div class="bubble user">Car mileage entha brother? Is it available?</div>
-    <div class="bubble bot">Avunu andi! Ee Swift VXI availability lo undi. 22kmpl mileage isthundi. Full details pampana?</div>
-  </div>
+  <div class="badge">Graphics × AI Integration</div>
+  <h1>Transforming Businesses with <span>AI & Design.</span></h1>
+  <p>EVK Designs provides high-impact business graphics and seamless AI automation to help modern brands operate faster and look better.</p>
 </div>
 
-<!-- PROBLEM -->
 <div class="section">
-  <div class="section-label">The Problem</div>
-  <h2 style="font-family: 'Syne'; font-size: 28px; margin-bottom: 32px;">Every missed reply is a lost sale</h2>
-  <div class="problem-grid">
-    <div class="problem-card"><h3>24/7 Demand</h3><p>Customers message at midnight. If you don't reply instantly, they move to the next dealer.</p></div>
-    <div class="problem-card"><h3>Manual Overload</h3><p>Spending hours repeating mileage and prices instead of closing deals.</p></div>
-    <div class="problem-card"><h3>Lead Leakage</h3><p>Interested buyers go cold because there's no system to track follow-ups.</p></div>
-  </div>
-</div>
+  <div class="grid-container">
+    
+    <!-- AI & AUTOMATION COLUMN -->
+    <div>
+      <h2 class="category-title"><span>🤖</span> AI & Automation</h2>
+      
+      <div class="service-card">
+        <h3>AI WhatsApp Bots</h3>
+        <p>Smart, 24/7 automated chat agents that handle inquiries and close sales in natural "Tinglish."</p>
+      </div>
+      
+      <div class="service-card">
+        <h3>Business AI Integration</h3>
+        <p>We integrate AI tools directly into your existing business workflows to eliminate manual work.</p>
+      </div>
 
-<!-- SOLUTION -->
-<div class="solution-section">
-  <div class="section-label" style="color: rgba(255,255,255,0.5);">The Solution</div>
-  <h2>Full-Auto <span>Lead Conversion</span></h2>
-  <div class="flow">
-    <div class="flow-step"><div class="num">01. CAPTURE</div><p>Customer taps your WhatsApp link from OLX or Ads.</p></div>
-    <div class="flow-step"><div class="num">02. ENGAGE</div><p>AI greets them instantly in natural Tinglish (Telugu + English).</p></div>
-    <div class="flow-step"><div class="num">03. AUTOMATE</div><p>AI shares photos and specs based on their specific interest.</p></div>
-    <div class="flow-step"><div class="num">04. QUALIFY</div><p>AI filters time-wasters and identifies serious buyers for you.</p></div>
-    <div class="flow-step"><div class="num">05. ESCALATE</div><p>You get a notification only when a "Hot Lead" is ready to buy.</p></div>
-  </div>
-</div>
-
-<!-- PROOF -->
-<div class="proof-section">
-  <div class="section-label">Real World Proof</div>
-  <h2 style="font-family: 'Syne'; margin-bottom: 32px;">Battle-tested at <strong>Tejaswini Auto Consultancy</strong></h2>
-  <div class="stat-grid">
-    <div class="stat"><div class="stat-num">&lt;5s</div><p>Response Time</p></div>
-    <div class="stat"><div class="stat-num">100%</div><p>Lead Capture Rate</p></div>
-    <div class="stat"><div class="stat-num">4 hrs</div><p>Daily Time Saved</p></div>
-  </div>
-</div>
-
-<!-- PRICING -->
-<div class="section">
-  <div class="section-label">Pricing Plans</div>
-  <div class="pricing-grid">
-    <div class="price-card">
-      <div class="price-amount">₹15,000</div>
-      <div class="price-desc">Basic Automation (One-time)</div>
-      <ul>
-        <li>AI FAQ & Inquiry Handling</li>
-        <li>Natural Tinglish Support</li>
-        <li>Automated Lead Google Sheet</li>
-        <li>1 Month Technical Support</li>
-      </ul>
+      <div class="service-card">
+        <h3>Lead Qualification Systems</h3>
+        <p>Automated systems that filter serious buyers and notify you instantly when a lead is ready.</p>
+      </div>
     </div>
-    <div class="price-card featured">
-      <div class="popular-tag">RECOMMENDED</div>
-      <div class="price-amount">₹25,000</div>
-      <div class="price-desc">Pro Workflow (One-time)</div>
-      <ul>
-        <li>Everything in Basic</li>
-        <li>Auto Photo & Catalog Sharing</li>
-        <li>Lead Qualification Engine</li>
-        <li>Instant Owner Alerts (Hot Leads)</li>
-        <li>3 Months Priority Support</li>
-      </ul>
+
+    <!-- GRAPHICS & CREATIVE COLUMN -->
+    <div>
+      <h2 class="category-title"><span>🎨</span> Business Graphics</h2>
+      
+      <div class="service-card">
+        <h3>Marketing Assets</h3>
+        <p>Premium designing for professional Brochures, Banners, and corporate identities.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Automotive Graphics</h3>
+        <p>Specialized branding for car consultancies, including high-res vehicle listings and banners.</p>
+      </div>
+      
+      <div class="service-card">
+        <h3>Social Media & Thumbnails</h3>
+        <p>High-CTR YouTube thumbnails and strategic social media management for maximum growth.</p>
+      </div>
     </div>
-    <div class="price-card">
-      <div class="price-amount">₹4,000</div>
-      <div class="price-desc">Monthly Care (Optional)</div>
-      <ul>
-        <li>Covers WhatsApp API Costs</li>
-        <li>Inventory & Price Updates</li>
-        <li>Monthly Performance Reports</li>
-        <li>Priority Troubleshooting</li>
-      </ul>
-    </div>
+
   </div>
 </div>
 
-<!-- CTA -->
 <div class="cta-section">
-  <h2>Stop losing leads. Start <span>Automating.</span></h2>
-  <p style="color: rgba(255,255,255,0.5); margin-top: 10px;">Experience the AI on your own phone right now.</p>
+  <h2 style="font-family: 'Syne'; font-size: 36px;">Ready to upgrade your <span>Business?</span></h2>
+  <a href="https://wa.me/919059855891?text=Hi%20Eswar%2C%20I%20want%20to%20discuss%20an%20AI%20or%20Graphics%20project" target="_blank" class="cta-btn">🚀 Start Your Project</a>
   
-  <a href="https://wa.me/919059855891?text=Hi%20Eswar%2C%20I%20want%20to%20see%20the%20AI%20Automation%20demo" target="_blank" class="cta-btn">🚀 Try the Demo Bot Now</a>
-
-  <div style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-top: 40px;">
-    <div style="color: rgba(255,255,255,0.6); font-size: 14px;">
-      📞 <strong>Call:</strong> +91 90598 55891
-    </div>
-    <div style="color: rgba(255,255,255,0.6); font-size: 14px;">
-      📧 <strong>Email:</strong> evkdesigns1@gmail.com
-    </div>
-    <div style="color: rgba(255,255,255,0.6); font-size: 14px;">
-      📍 <strong>Location:</strong> Samarlakota / Hyderabad
-    </div>
+  <div style="margin-top: 48px; font-size: 13px; color: rgba(255,255,255,0.4);">
+    📍 Samarlakota / Hyderabad &nbsp; | &nbsp; 📧 evkdesigns1@gmail.com
   </div>
 </div>
 
-<!-- FOOTER -->
-<div style="padding: 32px 48px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; background: var(--bg);">
-  <div>
-    <div style="font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 800; color: var(--ink);">EVK DESIGNS</div>
-    <p style="font-size: 11px; color: var(--muted); margin-top: 2px;">Founded by Eswar Padala</p>
-  </div>
-  <p style="font-size: 12px; color: var(--muted);">© 2026 WhatsApp AI Automation · Optimized for Local Businesses</p>
+<div style="padding: 32px; background: var(--bg); text-align: center; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); letter-spacing: 0.05em;">
+  © 2026 EVK DESIGNS · FOUNDED BY ESWAR PADALA · BBA GRADUATE & DATA SCIENCE STUDENT
 </div>
-
-<script>
-  // Simple JS to update the badge if it's late at night
-  const badge = document.getElementById('time-badge');
-  const hour = new Date().getHours();
-  if (hour >= 21 || hour <= 6) {
-    badge.innerHTML = '<span class="badge-dot" style="background:#ff4b2b"></span> Night Mode: AI Handling Inquiries';
-    badge.style.color = '#ff4b2b';
-    badge.style.borderColor = 'rgba(255,75,43,0.3)';
-    badge.style.background = 'rgba(255,75,43,0.1)';
-  }
-</script>
 
 </body>
 </html>
