@@ -3,17 +3,21 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="EVK Designs — AI WhatsApp bots, business graphics, and ecommerce web development for Telugu businesses in Hyderabad & AP."/>
 <title>EVK Designs | AI Automation & Business Graphics Agency</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
 <style>
   :root {
     --green: #25D366;
     --green-dark: #128C7E;
+    --green-light: #dcfce7;
     --ink: #0a0a0a;
+    --ink2: #2d2d2d;
     --muted: #6b7280;
     --border: #e5e7eb;
     --bg: #fafaf8;
     --white: #ffffff;
+    --accent: #FF6B35;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -23,11 +27,74 @@
     line-height: 1.6;
   }
 
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(10px);
+    padding: 16px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--green); }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--green);
+    color: var(--ink) !important;
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-weight: 700 !important;
+    font-size: 13px;
+  }
+
   /* HERO */
   .hero {
     background: var(--ink);
     color: var(--white);
-    padding: 100px 48px 80px;
+    padding: 100px 48px 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: var(--green);
+    opacity: 0.07;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: 15%;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.06;
   }
   .badge {
     display: inline-flex;
@@ -41,70 +108,316 @@
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 24px;
+    letter-spacing: 0.08em;
+    margin-bottom: 28px;
+  }
+  .badge-dot {
+    width: 7px; height: 7px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
   }
   .hero h1 {
     font-family: 'Syne', sans-serif;
-    font-size: clamp(32px, 5vw, 60px);
+    font-size: clamp(34px, 5.5vw, 64px);
     font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 20px;
+    line-height: 1.08;
+    margin-bottom: 24px;
+    max-width: 700px;
   }
   .hero h1 span { color: var(--green); }
   .hero p {
-    font-size: 18px;
-    color: rgba(255,255,255,0.7);
-    max-width: 650px;
+    font-size: 17px;
+    color: rgba(255,255,255,0.6);
+    max-width: 560px;
+    font-weight: 300;
+    line-height: 1.75;
+    margin-bottom: 40px;
   }
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--green);
+    color: var(--ink);
+    padding: 16px 32px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--white);
+    padding: 16px 32px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: border-color 0.2s;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.5); }
 
-  /* SERVICES SECTION */
+  /* TRUST BAR */
+  .trust-bar {
+    background: rgba(255,255,255,0.03);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 20px 48px;
+  }
+  .trust-items {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .trust-item {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .trust-item strong { color: rgba(255,255,255,0.8); }
+
+  /* SECTIONS */
   .section { padding: 80px 48px; }
   .section-label {
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     color: var(--muted);
-    letter-spacing: 0.1em;
-    margin-bottom: 40px;
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
   }
-  
+  .section-heading {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(24px, 3.5vw, 38px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 48px;
+  }
+
+  /* SERVICE CARDS */
   .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
   }
-
   .category-title {
     font-family: 'Syne', sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 800;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
+    color: var(--ink);
   }
-
   .service-card {
     background: var(--white);
     border: 1px solid var(--border);
-    padding: 32px;
-    border-radius: 16px;
-    margin-bottom: 16px;
-    transition: all 0.3s ease;
+    padding: 28px;
+    border-radius: 14px;
+    margin-bottom: 14px;
+    transition: all 0.25s ease;
+    cursor: default;
   }
   .service-card:hover {
     border-color: var(--green);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
   }
   .service-card h3 {
     font-family: 'Syne', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 700;
     margin-bottom: 8px;
+    color: var(--ink);
   }
   .service-card p {
-    font-size: 14px;
+    font-size: 13.5px;
     color: var(--muted);
+    line-height: 1.6;
   }
+  .service-tag {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--green-dark);
+    background: var(--green-light);
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+  .service-tag.orange {
+    color: #92400e;
+    background: #fff7ed;
+  }
+
+  /* ECOMMERCE SECTION */
+  .ecom-section {
+    background: linear-gradient(135deg, #f0fdf4 0%, #fafaf8 100%);
+    padding: 80px 48px;
+    border-top: 1px solid var(--border);
+  }
+  .ecom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .ecom-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    transition: all 0.25s ease;
+  }
+  .ecom-card:hover {
+    border-color: var(--green);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
+  }
+  .ecom-card .icon { font-size: 32px; margin-bottom: 14px; }
+  .ecom-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .ecom-card p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+
+  /* PAYMENT GATEWAY STRIP */
+  .payment-strip {
+    background: var(--ink);
+    border-radius: 16px;
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .payment-strip-left h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .payment-strip-left p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+  }
+  .payment-logos {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .payment-badge {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .payment-badge.razorpay { border-color: #528FF0; color: #7aaeff; }
+  .payment-badge.cashfree { border-color: #00C853; color: #4cff8a; }
+
+  /* WHY US */
+  .why-section {
+    background: var(--ink);
+    color: var(--white);
+    padding: 80px 48px;
+  }
+  .why-section .section-label { color: rgba(255,255,255,0.35); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+  }
+  .why-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 28px 24px;
+  }
+  .why-card .icon { font-size: 28px; margin-bottom: 14px; }
+  .why-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+  .why-card p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 24px;
+    margin-top: 56px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--green);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-label { font-size: 13px; color: rgba(255,255,255,0.45); }
+
+  /* PROCESS */
+  .process-section {
+    background: var(--white);
+    padding: 80px 48px;
+    border-top: 1px solid var(--border);
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0;
+  }
+  .step { padding: 0 24px 0 0; }
+  .step-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .step h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .step p { font-size: 13px; color: var(--muted); line-height: 1.5; }
 
   /* CTA */
   .cta-section {
@@ -112,89 +425,312 @@
     color: var(--white);
     padding: 100px 48px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: var(--green);
+    opacity: 0.04;
+  }
+  .cta-section h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 4.5vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .cta-section h2 span { color: var(--green); }
+  .cta-section p {
+    color: rgba(255,255,255,0.45);
+    font-size: 16px;
+    margin-bottom: 40px;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
   }
   .cta-btn {
     display: inline-flex;
+    align-items: center;
+    gap: 10px;
     background: var(--green);
     color: var(--ink);
-    padding: 20px 48px;
+    padding: 18px 40px;
     border-radius: 100px;
     text-decoration: none;
     font-family: 'Syne', sans-serif;
     font-weight: 800;
-    margin-top: 32px;
+    font-size: 15px;
+    position: relative;
+    transition: opacity 0.2s;
   }
+  .cta-btn:hover { opacity: 0.88; }
+  .contact-row {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    position: relative;
+  }
+  .contact-item { font-size: 14px; color: rgba(255,255,255,0.4); }
+  .contact-item strong { color: rgba(255,255,255,0.8); }
 
-  @media (max-width: 600px) {
-    .hero, .section { padding: 60px 24px; }
+  /* FOOTER */
+  .footer {
+    padding: 28px 48px;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer-brand {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .footer-brand span { color: var(--green); }
+  .footer p { font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
+
+  @media (max-width: 640px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .hero, .section, .why-section, .ecom-section,
+    .process-section, .cta-section, .footer { padding-left: 24px; padding-right: 24px; }
+    .trust-bar { padding: 16px 24px; }
+    .trust-items { gap: 16px; }
+    .steps { gap: 32px; }
+    .payment-strip { flex-direction: column; }
   }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">EVK<span>.</span>Designs</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#ecommerce">Ecommerce</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="https://wa.me/919059855891?text=Hi%20Eswar%2C%20I%20want%20to%20discuss%20a%20project" target="_blank" class="nav-cta">💬 WhatsApp</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
 <div class="hero">
-  <div class="badge">Graphics × AI Integration</div>
-  <h1>Transforming Businesses with <span>AI & Design.</span></h1>
-  <p>EVK Designs provides high-impact business graphics and seamless AI automation to help modern brands operate faster and look better.</p>
+  <div class="badge"><span class="badge-dot"></span> Graphics × AI × Web Development</div>
+  <h1>Transforming Businesses<br/>with <span>AI & Design.</span></h1>
+  <p>EVK Designs provides AI automation, high-impact business graphics, and ecommerce websites to help modern brands operate faster and look better.</p>
+  <div class="hero-btns">
+    <a href="https://wa.me/919059855891?text=Hi%20Eswar%2C%20I%20want%20to%20discuss%20a%20project" target="_blank" class="btn-primary">🚀 Start Your Project</a>
+    <a href="#services" class="btn-secondary">View Services ↓</a>
+  </div>
 </div>
 
-<div class="section">
+<!-- TRUST BAR -->
+<div class="hero" style="padding: 0;">
+  <div class="trust-bar">
+    <div class="trust-items">
+      <div class="trust-item">📍 <strong>Samarlakota & Hyderabad</strong></div>
+      <div class="trust-item">🇮🇳 <strong>Telugu & English</strong> support</div>
+      <div class="trust-item">⚡ <strong>Fast delivery</strong> guaranteed</div>
+      <div class="trust-item">🔒 <strong>Trusted by local businesses</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="section" id="services">
+  <div class="section-label">What we do</div>
+  <div class="section-heading">Three powerful services.<br/>One agency.</div>
   <div class="grid-container">
-    
-    <!-- AI & AUTOMATION COLUMN -->
+
+    <!-- AI COLUMN -->
     <div>
-      <h2 class="category-title"><span>🤖</span> AI & Automation</h2>
-      
+      <div class="category-title">🤖 AI & Automation</div>
       <div class="service-card">
         <h3>AI WhatsApp Bots</h3>
-        <p>Smart, 24/7 automated chat agents that handle inquiries and close sales in natural "Tinglish."</p>
+        <p>Smart 24/7 automated chat agents that handle inquiries and close sales in Telugu and English — without you lifting a finger.</p>
+        <span class="service-tag">Most Popular</span>
       </div>
-      
       <div class="service-card">
         <h3>Business AI Integration</h3>
-        <p>We integrate AI tools directly into your existing business workflows to eliminate manual work.</p>
+        <p>We integrate AI tools directly into your existing workflows — inventory, follow-ups, scheduling — to eliminate repetitive manual work.</p>
       </div>
-
       <div class="service-card">
         <h3>Lead Qualification Systems</h3>
-        <p>Automated systems that filter serious buyers and notify you instantly when a lead is ready.</p>
+        <p>Automated pipelines that filter serious buyers, log every conversation, and notify you instantly when a lead is ready to close.</p>
       </div>
     </div>
 
-    <!-- GRAPHICS & CREATIVE COLUMN -->
+    <!-- GRAPHICS COLUMN -->
     <div>
-      <h2 class="category-title"><span>🎨</span> Business Graphics</h2>
-      
+      <div class="category-title">🎨 Business Graphics</div>
       <div class="service-card">
         <h3>Marketing Assets</h3>
-        <p>Premium designing for professional Brochures, Banners, and corporate identities.</p>
+        <p>Premium designs for brochures, banners, and corporate identities that make your business look professional and trustworthy.</p>
       </div>
-
       <div class="service-card">
         <h3>Automotive Graphics</h3>
-        <p>Specialized branding for car consultancies, including high-res vehicle listings and banners.</p>
+        <p>Specialized branding for car consultancies — high-res vehicle listing visuals, showroom banners, and OLX-ready ad creatives.</p>
+        <span class="service-tag orange">Specialized</span>
       </div>
-      
       <div class="service-card">
         <h3>Social Media & Thumbnails</h3>
-        <p>High-CTR YouTube thumbnails and strategic social media management for maximum growth.</p>
+        <p>High-CTR YouTube thumbnails and strategic social media content designed to grow your audience and drive engagement.</p>
       </div>
     </div>
 
   </div>
 </div>
 
-<div class="cta-section">
-  <h2 style="font-family: 'Syne'; font-size: 36px;">Ready to upgrade your <span>Business?</span></h2>
-  <a href="https://wa.me/919059855891?text=Hi%20Eswar%2C%20I%20want%20to%20discuss%20an%20AI%20or%20Graphics%20project" target="_blank" class="cta-btn">🚀 Start Your Project</a>
-  
-  <div style="margin-top: 48px; font-size: 13px; color: rgba(255,255,255,0.4);">
-    📍 Samarlakota / Hyderabad &nbsp; | &nbsp; 📧 evkdesigns1@gmail.com
+<!-- ECOMMERCE SECTION -->
+<div class="ecom-section" id="ecommerce">
+  <div class="section-label">Web Development</div>
+  <div class="section-heading">Sell online with a<br/>professional ecommerce store.</div>
+
+  <div class="ecom-grid">
+    <div class="ecom-card">
+      <div class="icon">🛒</div>
+      <h3>WordPress / WooCommerce</h3>
+      <p>Beautiful, fast online stores built on WordPress with WooCommerce — perfect for any product-based business at an affordable price.</p>
+      <span class="service-tag" style="display:inline-block; margin-top:12px;">Budget-friendly</span>
+    </div>
+    <div class="ecom-card">
+      <div class="icon">🏪</div>
+      <h3>Shopify Stores</h3>
+      <p>Professional Shopify stores designed to convert visitors into customers — clean product pages, smooth checkout, and mobile-first design.</p>
+      <span class="service-tag orange" style="display:inline-block; margin-top:12px;">Scalable</span>
+    </div>
+    <div class="ecom-card">
+      <div class="icon">🌐</div>
+      <h3>Business Websites</h3>
+      <p>Clean, modern websites for service businesses, consultancies, clinics, and more — designed to build trust and generate leads.</p>
+    </div>
+    <div class="ecom-card">
+      <div class="icon">📦</div>
+      <h3>Product & Catalog Pages</h3>
+      <p>Well-structured product listings with high-quality visuals and descriptions that help customers make buying decisions faster.</p>
+    </div>
+  </div>
+
+  <!-- PAYMENT GATEWAY STRIP -->
+  <div class="payment-strip">
+    <div class="payment-strip-left">
+      <h3>💳 Payment Gateway Integration</h3>
+      <p>We connect your store to India's most trusted payment gateways — accept UPI, cards, net banking & wallets instantly.</p>
+    </div>
+    <div class="payment-logos">
+      <div class="payment-badge razorpay">⚡ Razorpay</div>
+      <div class="payment-badge cashfree">✅ Cashfree</div>
+      <div class="payment-badge">🔒 Secure Checkout</div>
+    </div>
   </div>
 </div>
 
-<div style="padding: 32px; background: var(--bg); text-align: center; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); letter-spacing: 0.05em;">
-  © 2026 EVK DESIGNS · FOUNDED BY ESWAR PADALA · BBA GRADUATE & DATA SCIENCE STUDENT
+<!-- WHY US -->
+<div class="why-section" id="why">
+  <div class="section-label">Why EVK Designs</div>
+  <div class="section-heading" style="color: var(--white); margin-bottom: 48px;">Built for local businesses.<br/><span style="color: var(--green);">Priced for them too.</span></div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="icon">🇮🇳</div>
+      <h3>Telugu-first approach</h3>
+      <p>We understand local customers, local culture, and local business needs — no one else builds bots that speak like your customers.</p>
+    </div>
+    <div class="why-card">
+      <div class="icon">⚡</div>
+      <h3>Fast setup, no hassle</h3>
+      <p>Your WhatsApp AI bot or website can be live in 2–3 days. No app downloads, no technical training needed for your team.</p>
+    </div>
+    <div class="why-card">
+      <div class="icon">🔬</div>
+      <h3>Live proof, not promises</h3>
+      <p>Our AI bot is already running at Tejaswini Auto Consultancy. We can show you a live demo on the spot.</p>
+    </div>
+    <div class="why-card">
+      <div class="icon">💰</div>
+      <h3>Affordable pricing</h3>
+      <p>Enterprise-level automation and design at small business prices — a fraction of what one lost lead costs you.</p>
+    </div>
+  </div>
+  <div class="stats-row">
+    <div class="stat-item">
+      <div class="stat-num">&lt;5s</div>
+      <div class="stat-label">Average AI response time</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Always available, zero breaks</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">₹0</div>
+      <div class="stat-label">Extra staff cost to handle leads</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">2–3</div>
+      <div class="stat-label">Days to go live</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="process-section" id="process">
+  <div class="section-label">How it works</div>
+  <div class="section-heading">Live in 3 simple steps.</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Discovery call</h3>
+      <p>We understand your business, your customers, and exactly what you need built.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>We build it</h3>
+      <p>Whether it's a bot, a website, or graphics — we deliver fast, clean, and ready to use.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>You go live</h3>
+      <p>We hand over, walk you through everything in 30 minutes, and you start getting results.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3>We support you</h3>
+      <p>Monthly maintenance, updates, and improvements so everything keeps running smoothly.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Ready to upgrade<br/>your <span>Business?</span></h2>
+  <p>Get a free consultation — tell us what you need and we'll show you exactly how we can help.</p>
+  <a href="https://wa.me/919059855891?text=Hi%20Eswar%2C%20I%20want%20to%20discuss%20an%20AI%20or%20Graphics%20project" target="_blank" class="cta-btn">💬 Start Your Project on WhatsApp</a>
+  <div class="contact-row">
+    <div class="contact-item">📍 <strong>Samarlakota / Hyderabad</strong></div>
+    <div class="contact-item">📧 <strong>evkdesigns1@gmail.com</strong></div>
+    <div class="contact-item">📱 <strong>+91 90598 55891</strong></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">EVK<span>.</span>Designs</div>
+  <p>© 2026 EVK DESIGNS · FOUNDED BY ESWAR PADALA · BBA GRADUATE & DATA SCIENCE STUDENT</p>
 </div>
 
 </body>
